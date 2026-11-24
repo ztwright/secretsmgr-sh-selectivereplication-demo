@@ -1,0 +1,8 @@
+## policy/sr-followers-prod.yml
+# conjur policy load -b root -f sr-followers-pod.yml
+
+- !grant
+  role: !group vault/LOB/${SAFE_NAME}/delegation/consumers
+  member: !group
+    account: system
+    id: conjur/replication-sets/sr-followers-prod/replicated-data
